@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:videocall_javascript/utils/user.utils.dart';
 
-String MEETING_API_URL = "http://localhost:3000/api/meeting";
+String MEETING_API_URL = "enter the api url of Node.js";
 var client = http.Client();
 
 Future<http.Response?> startMeeting() async {

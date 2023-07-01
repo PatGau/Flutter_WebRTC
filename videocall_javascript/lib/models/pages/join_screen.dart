@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
-import 'package:videocall_javascript/api/meeting_api.dart';
 import 'package:videocall_javascript/models/meetings_details.dart';
+import 'package:videocall_javascript/models/pages/meeting_pages.dart';
 
 class JoinScreen extends StatefulWidget {
   final String? meetingId;
@@ -71,7 +69,15 @@ class _JoinScreenState extends State<JoinScreen> {
                 Flexible(
                     child: FormHelper.submitButton("Join Meeting", () {
                   if (validateAndSave()) {
-                    //Meeting;
+                    // Meeting;
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return MeetingPage(
+                        meetingId: widget.meetingDetail!.id,
+                        name: userName,
+                        meetingDetail: widget.meetingDetail!,
+                      );
+                    })));
                   }
                 })),
               ],
